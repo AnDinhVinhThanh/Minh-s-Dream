@@ -541,12 +541,16 @@
 
         heart.style.left = e.clientX - 12 + "px";
         heart.style.top = e.clientY - 12 + "px";
-
         document.body.appendChild(heart);
 
         setTimeout(() => {
           heart.remove();
         }, 2000);
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch((err) => {
+            console.log("Lỗi fullscreen: " + err.message);
+          });
+        }
       });
 
       // 3. Chức năng thêm món ăn động với localStorage
