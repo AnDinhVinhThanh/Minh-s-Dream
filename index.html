@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vũ Trụ Của Cô Bé</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              "fade-in": "fadeIn 1.5s ease-out",
+              "slide-up": "slideUp 1s ease-out forwards",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { opacity: "0", transform: "translateY(40px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      .font-handwriting {
+        font-family: "Dancing Script", cursive;
+      }
+
+      /* Lấy luôn ảnh Phùng Khánh Linh làm nền mờ ảo cho xịn */
+      .bg-hero {
+        background-image: url("Minh_child_2.jpg");
+      }
+
+      /* Ẩn thanh cuộn của phần Slider Tokyo */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Hiệu ứng tim bay */
+      .floating-heart {
+        position: fixed;
+        pointer-events: none;
+        font-size: 24px;
+        animation: floatUp 2s ease-out forwards;
+        z-index: 9999;
+      }
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      /* Custom thanh phát nhạc */
+      audio {
+        width: 100%;
+        height: 45px;
+        outline: none;
+        border-radius: 9999px;
+      }
+      audio::-webkit-media-controls-panel {
+        background-color: #f43f5e;
+      }
+      audio::-webkit-media-controls-current-time-display,
+      audio::-webkit-media-controls-time-remaining-display {
+        color: white;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-neutral-900 text-neutral-100 font-sans selection:bg-rose-500 selection:text-white pb-20"
+  >
+    <header
+      class="relative flex flex-col items-center justify-center h-screen overflow-hidden animate-fade-in"
+    >
+      <div class="absolute inset-0 bg-hero bg-cover bg-top opacity-20"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-neutral-900/50"
+      ></div>
+      <div class="relative z-10 text-center px-6 max-w-3xl">
+        <h1
+          class="font-handwriting text-5xl md:text-7xl text-rose-400 mb-6 drop-shadow-lg"
+        >
+          Chào em bé hay dỗi của tui,
+        </h1>
+        <p
+          class="text-lg md:text-xl font-light text-rose-200/90 leading-relaxed drop-shadow-md"
+        >
+          Từ những tin nhắn ngày đầu hỏi về citigym, những tin nhắn thả thính
+          trêu ghẹo của tui, rồi lần đầu nói chuyện với nhau ở hội chợ xuân hay
+          những kí ức về những buổi đi chơi. Đối với tui, đó điều là những kí ức
+          đẹp từ khi Minh xuất hiện, và đóa hoa Tulip hồng An tặng chắc Minh
+          nhận được rồi he! ❤️ Minh thử tìm hiểu ý nghĩa của hoa Tulip hồng xem,
+          nó giống như những gì An muốn gửi gắm đến Minh vậy. Xin Lỗi vì đã
+          không thể trao tận tay Minh món quà này. Mong là Minh đã rất vui khi
+          nhận dược nó. Chúc Minh một ngày 8/3 vui vẻ, bình an và ngày càng xinh
+          đẹp nhoe :33
+        </p>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-10 space-y-32">
+      <section
+        class="relative p-10 md:p-12 bg-neutral-800 rounded-3xl shadow-2xl border border-neutral-700 overflow-hidden group opacity-0 animate-slide-up"
+        style="animation-delay: 0.2s"
+      >
+        <div
+          class="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl -mr-20 -mt-20 transition-all duration-700 group-hover:bg-rose-500/20"
+        ></div>
+        <div class="mb-8">
+          <h2
+            class="font-handwriting text-4xl mb-2 flex items-center gap-3 text-rose-400"
+          >
+            ✈️ Tokyo Dreaming
+          </h2>
+          <p class="text-neutral-400 italic">
+            "Hãy nói những điều mà Minh muốn trải nghiệm ở đây nhé..., mong là
+            An sẽ được cùng Minh trong chuyến hành trình ấy!"
+          </p>
+        </div>
+
+        <!-- Add new location form -->
+        <div
+          class="bg-neutral-800/50 p-6 rounded-xl border border-neutral-700 mb-8"
+        >
+          <h3 class="text-lg font-bold text-rose-300 mb-4">
+            Thêm Địa Điểm Mới
+          </h3>
+          <div class="flex flex-col gap-4 md:flex-row">
+            <input
+              type="text"
+              id="tokyoTitle"
+              placeholder="Tên địa điểm (e.g., Shibuya Crossing)"
+              class="flex-1 px-4 py-2 bg-neutral-700 text-white rounded-xl border border-neutral-600 hover:border-rose-400/50 focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-500/30 transition-colors"
+            />
+            <input
+              type="text"
+              id="tokyoDesc"
+              placeholder="Mô tả trải nghiệm"
+              class="flex-1 px-4 py-2 bg-neutral-700 text-white rounded-xl border border-neutral-600 hover:border-rose-400/50 focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-500/30 transition-colors"
+            />
+            <input
+              type="text"
+              id="tokyoImgUrl"
+              placeholder="Link ảnh online (để trống dùng mặc định)"
+              class="flex-1 px-4 py-2 bg-neutral-700 text-white rounded-xl border border-neutral-600 hover:border-rose-400/50 focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-500/30 transition-colors"
+            />
+            <button
+              id="addTokyoBtn"
+              class="px-6 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-xl font-medium transition-colors shadow-lg shadow-rose-500/30 active:scale-95"
+            >
+              Thêm địa điểm
+            </button>
+          </div>
+        </div>
+        <div
+          id="tokyoSlider"
+          class="flex overflow-x-auto gap-6 pb-4 hide-scrollbar snap-x snap-mandatory"
+        >
+          <!-- slider items will be injected via JavaScript -->
+        </div>
+
+        <button
+          onclick="alert('Minh không định rủ An sao ? ❤️')"
+          class="mt-8 px-8 py-3 bg-rose-500 hover:bg-rose-600 text-white rounded-full font-medium transition-colors shadow-lg shadow-rose-500/30 active:scale-95"
+        >
+          Lên kế hoạch đi Tokyo thôi!
+        </button>
+      </section>
+
+      <section class="opacity-0 animate-slide-up" style="animation-delay: 0.4s">
+        <h2 class="font-handwriting text-4xl mb-10 text-center text-rose-400">
+          ✨ Vibe & Passions của Em
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="bg-neutral-800 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border border-neutral-700/50 hover:border-rose-400/50 flex flex-col shadow-xl"
+          >
+            <img
+              src="https://media.giphy.com/media/l41JRsph73VokN6ik/giphy.gif"
+              alt="Dancing"
+              class="w-full h-48 object-cover rounded-xl mb-4 shadow-md bg-neutral-700"
+            />
+            <h3 class="text-xl font-bold mb-2 text-rose-200">
+              Dancing In The Dark
+            </h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Chỉ cần một bản nhạc êm dịu, anh muốn ngắm em xoay vòng, mềm mại
+              và tự do. Nếu mỏi chân, hãy tựa vào vai anh nhé.
+            </p>
+          </div>
+
+          <div
+            class="bg-neutral-800 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border border-neutral-700/50 hover:border-rose-400/50 flex flex-col shadow-xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop"
+              alt="Cafe"
+              class="w-full h-48 object-cover rounded-xl mb-4 shadow-md bg-neutral-700"
+            />
+            <h3 class="text-xl font-bold mb-2 text-rose-200">Cafe View Đẹp</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Đam mê những góc quán chill chill, không gian mở để ngắm nhìn
+              thành phố.
+            </p>
+          </div>
+
+          <div
+            class="bg-neutral-800 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border border-neutral-700/50 hover:border-rose-400/50 flex flex-col shadow-xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?q=80&w=600&auto=format&fit=crop"
+              alt="Nhạc cụ"
+              class="w-full h-48 object-cover rounded-xl mb-4 shadow-md bg-neutral-700"
+            />
+            <h3 class="text-xl font-bold mb-2 text-rose-200">Nhạc cụ 🎹 🎸</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Mỗi khi em lướt ngón tay trên phím đàn, trông cô bé của anh dịu
+              dàng đến lạ.
+            </p>
+          </div>
+
+          <div
+            class="bg-neutral-800 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border border-neutral-700/50 hover:border-rose-400/50 flex flex-col shadow-xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop"
+              alt="Phong cách"
+              class="w-full h-48 object-cover rounded-xl mb-4 shadow-md bg-neutral-700"
+            />
+            <h3 class="text-xl font-bold mb-2 text-rose-200">Phong Cách</h3>
+            <p class="text-neutral-400 text-sm leading-relaxed">
+              Sexy, quyến rũ nhưng vẫn vô cùng tinh tế và thanh lịch.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="grid grid-cols-1 md:grid-cols-2 gap-12 opacity-0 animate-slide-up"
+        style="animation-delay: 0.6s"
+      >
+        <div class="space-y-6">
+          <h2 class="font-handwriting text-4xl mb-6 text-rose-400">
+            🍷 Taste & Cravings
+          </h2>
+          <p class="text-neutral-400 mb-4 italic">
+            "Anh đã ghi nhớ hết những món em thích rồi:"
+          </p>
+
+          <!-- Input và Button để thêm món ăn -->
+          <div class="flex gap-3 mb-6">
+            <input
+              type="text"
+              id="newFood"
+              placeholder="Nhập món ăn mới..."
+              class="flex-1 px-4 py-3 bg-neutral-700 text-white rounded-xl border border-neutral-600 hover:border-rose-400/50 transition-colors focus:outline-none focus:border-rose-400"
+            />
+            <button
+              id="addFoodBtn"
+              class="px-6 py-3 bg-rose-500 hover:bg-rose-600 text-white rounded-xl font-medium transition-colors shadow-lg shadow-rose-500/30 active:scale-95"
+            >
+              Thêm món
+            </button>
+          </div>
+
+          <ul class="space-y-4" id="foodList">
+            <!-- Food items rendered by JavaScript -->
+          </ul>
+        </div>
+
+        <div class="space-y-6">
+          <h2 class="font-handwriting text-4xl mb-6 text-rose-400">
+            🎵 Your Soul & Sound
+          </h2>
+          <div
+            class="bg-neutral-800/90 rounded-2xl p-7 border border-neutral-700 shadow-xl relative overflow-hidden"
+          >
+            <div
+              class="absolute -top-10 -right-10 w-40 h-40 bg-rose-500/5 rounded-full blur-3xl"
+            ></div>
+
+            <div class="flex items-center gap-6 mb-6 relative z-10">
+              <img
+                id="playerCover"
+                src="https://i.ibb.co/C0D9r3B/phung-khanh-linh.jpg"
+                class="w-28 h-28 object-cover rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.3)] border-2 border-rose-400 bg-neutral-700 animate-[spin_10s_linear_infinite]"
+                alt="Cover bài hát"
+              />
+              <div>
+                <h3
+                  id="songTitle"
+                  class="text-2xl font-bold text-rose-300 drop-shadow-sm"
+                >
+                  em đau
+                </h3>
+                <p
+                  id="songArtist"
+                  class="text-neutral-400 mt-2 text-sm uppercase tracking-widest"
+                >
+                  Phùng Khánh Linh
+                </p>
+              </div>
+            </div>
+
+            <audio id="myAudio" controls class="w-full relative z-10">
+              Trình duyệt của bạn không hỗ trợ phát nhạc.
+            </audio>
+          </div>
+
+          <!-- Upload control -->
+          <div class="mb-5 relative z-10">
+            <input
+              type="file"
+              id="musicUpload"
+              accept="audio/*"
+              multiple
+              class="hidden"
+            />
+            <label
+              for="musicUpload"
+              class="inline-flex items-center justify-center w-full px-5 py-3 bg-neutral-700/50 hover:bg-neutral-600 text-sm text-white rounded-xl cursor-pointer transition-all border border-neutral-600 shadow-inner active:scale-95"
+            >
+              <span class="text-lg mr-2">🎧</span> Tải nhạc từ máy
+            </label>
+          </div>
+
+          <!-- Playlist -->
+          <div>
+            <h3 class="text-xl font-bold text-rose-300 mb-4">Danh Sách Phát</h3>
+            <ul id="playlistContainer" class="space-y-3"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="py-10 text-center border-t border-neutral-800 text-neutral-500 text-sm tracking-widest uppercase relative z-10"
+    >
+      <p>
+        Made with
+        <span class="text-rose-500 animate-pulse text-lg">❤️</span> just for my
+        Princess.
+      </p>
+      <p class="mt-2 text-xs text-neutral-600">
+        Hãy click thử vào màn hình xem có gì kìa!
+      </p>
+    </footer>
+
+    <script>
+      localStorage.clear();
+      // 1. Playlist array
+      const playlist = [
+        {
+          id: 1,
+          title: "Em Đau",
+          artist: "Phùng Khánh Linh",
+          coverSrc:
+            "https://i.ytimg.com/vi/4mtpDkVUE8w/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD24wh36mDcfwaIKL9oWpXzKeB-MA",
+          audioSrc: "Em Đau - Phùng Khánh Linh.mp3",
+        },
+        {
+          id: 2,
+          title: "Anh Đã Quen Với Cô Đơn",
+          artist: "Soobin Hoàng Sơn",
+          coverSrc:
+            "https://i.scdn.co/image/ab67616d0000b2732922307c16bb852a0849bea0",
+          audioSrc: "Anh Đã Quen Với Cô Đơn.mp3",
+        },
+      ];
+
+      let currentSongIndex = 0;
+
+      const playerCover = document.getElementById("playerCover");
+      const songTitle = document.getElementById("songTitle");
+      const songArtist = document.getElementById("songArtist");
+      const myAudio = document.getElementById("myAudio");
+      const playlistContainer = document.getElementById("playlistContainer");
+
+      function loadSong(index) {
+        const song = playlist[index];
+        currentSongIndex = index;
+        playerCover.src = song.coverSrc;
+        songTitle.innerText = song.title;
+        songArtist.innerText = song.artist;
+        myAudio.src = song.audioSrc;
+        myAudio.play();
+
+        // Update active state in playlist
+        const items = playlistContainer.querySelectorAll("li");
+        items.forEach((item, i) => {
+          if (i === index) {
+            item.classList.remove("bg-neutral-800/80", "border-neutral-700");
+            item.classList.add(
+              "bg-rose-500/20",
+              "border-rose-400",
+              "shadow-rose-500/20",
+            );
+            item.querySelector("span")?.classList.remove("hidden");
+          } else {
+            item.classList.remove(
+              "bg-rose-500/20",
+              "border-rose-400",
+              "shadow-rose-500/20",
+            );
+            item.classList.add("bg-neutral-800/80", "border-neutral-700");
+            item.querySelector("span")?.classList.add("hidden");
+          }
+        });
+      }
+
+      function renderPlaylist() {
+        playlistContainer.innerHTML = "";
+        playlist.forEach((song, index) => {
+          const li = document.createElement("li");
+          const isActive = index === 0;
+          li.className = `flex items-center gap-4 p-4 rounded-xl border transition-all cursor-pointer shadow-md ${
+            isActive
+              ? "bg-rose-500/20 border-rose-400 shadow-rose-500/20"
+              : "bg-neutral-800/80 border-neutral-700 hover:border-rose-400/50"
+          }`;
+          li.innerHTML = `
+            <img src="${song.coverSrc}" alt="${song.title}" class="w-16 h-16 object-cover rounded-lg shadow-md bg-neutral-700" />
+            <div class="flex-1">
+              <p class="text-white font-bold text-sm">${song.title}</p>
+              <p class="text-neutral-400 text-xs">${song.artist}</p>
+            </div>
+            <span class="text-rose-400 text-lg ${!isActive ? "hidden" : ""}">▶️</span>
+          `;
+          li.addEventListener("click", () => loadSong(index));
+          playlistContainer.appendChild(li);
+        });
+      }
+
+      // Initialize playlist
+      loadSong(0);
+      renderPlaylist();
+
+      // 1a. Handle local file uploads to playlist
+      const musicUploadInput = document.getElementById("musicUpload");
+      musicUploadInput.addEventListener("change", function (e) {
+        const files = Array.from(e.target.files);
+        files.forEach((file) => {
+          const url = URL.createObjectURL(file);
+          const name = file.name.replace(/\.[^/.]+$/, "");
+          const song = {
+            id: playlist.length + 1,
+            title: name,
+            artist: "",
+            coverSrc: "https://i.ibb.co/C0D9r3B/phung-khanh-linh.jpg",
+            audioSrc: url,
+          };
+          playlist.push(song);
+
+          // append new item to playlist UI
+          const li = document.createElement("li");
+          li.className =
+            "flex items-center justify-between p-4 rounded-xl border transition-all cursor-pointer shadow-md bg-neutral-800/80 border-neutral-700 hover:border-rose-400/50 group";
+          const playlistIndex = playlist.length - 1;
+          li.innerHTML = `
+            <div class="flex items-center gap-4 flex-1">
+              <img src="${song.coverSrc}" alt="${song.title}" class="w-16 h-16 object-cover rounded-lg shadow-md bg-neutral-700" />
+              <div class="flex-1">
+                <p class="text-white font-bold text-sm song-name-display">${song.title}</p>
+                <p class="text-neutral-400 text-xs">${song.artist}</p>
+              </div>
+              <span class="text-rose-400 text-lg hidden">▶️</span>
+            </div>
+            <div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity ml-2">
+              <button class="p-2 text-neutral-400 hover:text-rose-300 transition-colors edit-btn" title="Edit">✏️</button>
+              <button class="p-2 text-neutral-400 hover:text-red-400 transition-colors delete-btn" title="Delete"><img src="./Garbage.png" alt="Delete" class="w-6 h-6 object-contain drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] hover:scale-110 hover:-rotate-6 transition-transform" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3221/3221897.png'; this.onerror=null;" /></button>
+            </div>
+          `;
+
+          // Add event listeners for edit and delete buttons
+          const editBtn = li.querySelector(".edit-btn");
+          const deleteBtn = li.querySelector(".delete-btn");
+          const nameDisplay = li.querySelector(".song-name-display");
+
+          editBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const newName = prompt("Enter new song name:", song.title);
+            if (newName && newName.trim() !== "") {
+              song.title = newName.trim();
+              nameDisplay.innerText = newName.trim();
+              // Update main player if this song is currently playing
+              if (myAudio.src === url) {
+                songTitle.innerText = newName.trim();
+              }
+            }
+          });
+
+          deleteBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            if (confirm("Are you sure you want to delete this song?")) {
+              li.remove();
+            }
+          });
+
+          li.addEventListener("click", () => loadSong(playlistIndex));
+          playlistContainer.appendChild(li);
+        });
+      });
+
+      // 2. Chức năng Click hiện tim bay (floating hearts)
+      document.addEventListener("click", function (e) {
+        // Mảng các emoji dễ thương
+        const hearts = ["❤️", "💖", "🌸", "✨", "🎀"];
+        const randomHeart = hearts[Math.floor(Math.random() * hearts.length)];
+
+        const heart = document.createElement("div");
+        heart.classList.add("floating-heart");
+        heart.innerHTML = randomHeart;
+
+        heart.style.left = e.clientX - 12 + "px";
+        heart.style.top = e.clientY - 12 + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 2000);
+      });
+
+      // 3. Chức năng thêm món ăn động với localStorage
+      const defaultFoods = [
+        "Sushi & Sashimi tươi sống",
+        "Rong biển trộn mè",
+        "Uống Cafe / Matcha chill chill",
+      ];
+
+      // Initialize foods from localStorage or use defaults
+      let foods =
+        JSON.parse(localStorage.getItem("savedFoods")) || defaultFoods;
+
+      const addFoodBtn = document.getElementById("addFoodBtn");
+      const newFoodInput = document.getElementById("newFood");
+      const foodList = document.getElementById("foodList");
+
+      function saveFoodsToLocalStorage() {
+        localStorage.setItem("savedFoods", JSON.stringify(foods));
+      }
+
+      function renderFoodList() {
+        foodList.innerHTML = "";
+        foods.forEach((food) => {
+          const li = document.createElement("li");
+          li.className =
+            "group flex items-center gap-4 bg-neutral-800/80 p-5 rounded-xl border border-neutral-700 hover:border-rose-400/50 transition-colors shadow-md";
+          li.innerHTML = `
+            <div class="w-3 h-3 rounded-full bg-rose-400 shadow-[0_0_10px_rgba(244,63,94,0.5)]"></div>
+            <span class="text-lg text-neutral-200 font-medium flex-1">${food}</span>
+            <button class="delete-food-btn p-2 text-neutral-400 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100" title="Xóa"><img src="./Garbage.png" alt="Delete" class="w-6 h-6 object-contain drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] hover:scale-110 hover:-rotate-6 transition-transform" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3221/3221897.png'; this.onerror=null;" /></button>
+          `;
+
+          const deleteBtn = li.querySelector(".delete-food-btn");
+          deleteBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            if (confirm(`Xóa "${food}"?`)) {
+              foods = foods.filter((f) => f !== food);
+              saveFoodsToLocalStorage();
+              renderFoodList();
+            }
+          });
+
+          foodList.appendChild(li);
+        });
+      }
+
+      function addNewFood() {
+        const foodName = newFoodInput.value.trim();
+        if (!foodName) return;
+
+        foods.push(foodName);
+        saveFoodsToLocalStorage();
+        renderFoodList();
+
+        // Xóa input
+        newFoodInput.value = "";
+        newFoodInput.focus();
+      }
+
+      // Initialize food list on page load
+      renderFoodList();
+
+      // Lắng nghe click button
+      addFoodBtn.addEventListener("click", addNewFood);
+
+      // Hỗ trợ Enter key
+      newFoodInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          addNewFood();
+        }
+      });
+
+      // 4. Tokyo slider dynamic rendering with localStorage
+      const defaultTokyoLocations = [
+        {
+          title: "Tháp Tokyo rực rỡ",
+          desc: "Ngắm nhìn cảnh đêm lung linh của thành phố",
+          imgUrl: "Red_Tokyo_Tower.mp4",
+        },
+        {
+          title: "Asakusa khu phố cổ kính",
+          desc: "Nơi giao thao độc đáo giữa truyền thống và hiện đại",
+          imgUrl: "Asakusa.mp4",
+        },
+      ];
+
+      // Initialize tokyoLocations from localStorage or use defaults
+      let tokyoLocations =
+        JSON.parse(localStorage.getItem("savedTokyo")) || defaultTokyoLocations;
+
+      function renderTokyoSlider() {
+        const container = document.getElementById("tokyoSlider");
+        container.innerHTML = "";
+
+        // Dùng biến tokyoLocations (hoặc đổi thành defaultTokyoLocations nếu mảng của bạn tên như vậy)
+        let dataToRender =
+          JSON.parse(localStorage.getItem("savedTokyo")) ||
+          defaultTokyoLocations;
+
+        dataToRender.forEach((loc, index) => {
+          // 1. Nhận diện video (mp4 hoặc webm)
+          const isVideo =
+            loc.imgUrl.toLowerCase().endsWith(".mp4") ||
+            loc.imgUrl.toLowerCase().endsWith(".webm");
+
+          // 2. Nếu là video thì dùng thẻ <video>, nếu là ảnh thì dùng thẻ <img>
+          const mediaHTML = isVideo
+            ? `<video src="${loc.imgUrl}" class="w-full h-64 object-cover" autoplay loop muted playsinline></video>`
+            : `<img src="${loc.imgUrl}" class="w-full h-64 object-cover" alt="${loc.title}" />`;
+
+          const item = `
+            <div class="min-w-[85%] md:min-w-[45%] snap-center rounded-2xl overflow-hidden relative shadow-md border border-neutral-700 group">
+              
+              ${mediaHTML}
+              
+              <div onclick="deleteTokyoLocation(${index})" 
+                   class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer z-10" 
+                   title="Xóa địa điểm này">
+                <img src="Garbage.png" alt="Xóa" class="w-8 h-8 object-contain drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)] hover:scale-110 hover:-rotate-6 transition-transform" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3221/3221897.png'; this.onerror=null;" />
+              </div>
+
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 p-4">
+                <p class="text-white font-medium text-lg">${loc.title}</p>
+                <p class="text-neutral-300 text-sm">${loc.desc}</p>
+              </div>
+            </div>
+          `;
+          container.innerHTML += item;
+        });
+      }
+
+      window.deleteTokyoLocation = function (index) {
+        if (confirm("Công chúa có chắc muốn xóa địa điểm này không?")) {
+          tokyoLocations.splice(index, 1);
+          localStorage.setItem("savedTokyo", JSON.stringify(tokyoLocations));
+          renderTokyoSlider();
+        }
+      };
+
+      // initialize slider on page load
+      renderTokyoSlider();
+
+      // 5. Add new Tokyo location functionality
+      const addTokyoBtn = document.getElementById("addTokyoBtn");
+      const tokyoTitleInput = document.getElementById("tokyoTitle");
+      const tokyoDescInput = document.getElementById("tokyoDesc");
+      const tokyoImgUrlInput = document.getElementById("tokyoImgUrl");
+
+      function saveTokyo() {
+        localStorage.setItem("savedTokyo", JSON.stringify(tokyoLocations));
+      }
+
+      addTokyoBtn.addEventListener("click", function () {
+        const title = tokyoTitleInput.value.trim();
+        const desc = tokyoDescInput.value.trim();
+        let imgUrl = tokyoImgUrlInput.value.trim();
+
+        // Validate title and description
+        if (!title || !desc) {
+          alert("Vui lòng nhập tên địa điểm và mô tả!");
+          return;
+        }
+
+        // Use default image if empty
+        if (!imgUrl) {
+          imgUrl =
+            "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=800&auto=format&fit=crop";
+        }
+
+        // Add new location to array (at the beginning)
+        const newLocation = {
+          title: title,
+          desc: desc,
+          imgUrl: imgUrl,
+        };
+        tokyoLocations.unshift(newLocation);
+
+        // Save to localStorage
+        saveTokyo();
+
+        // Re-render slider
+        renderTokyoSlider();
+
+        // Clear inputs
+        tokyoTitleInput.value = "";
+        tokyoDescInput.value = "";
+        tokyoImgUrlInput.value = "";
+        tokyoTitleInput.focus();
+      });
+
+      // Support Enter key for adding location
+      [tokyoTitleInput, tokyoDescInput, tokyoImgUrlInput].forEach((input) => {
+        input.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            addTokyoBtn.click();
+          }
+        });
+      });
+
+      // 6. Chức năng Click hiện tim bay (floating hearts) - maintained as is
+      // Place this at the end to ensure it doesn't interfere with other listeners
+    </script>
+  </body>
+</html>
