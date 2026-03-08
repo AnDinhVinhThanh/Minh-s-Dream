@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vũ Trụ Của Cô Bé</title>
+    <title>Chúc mừng ngày 8/3</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -43,13 +43,9 @@
       .font-handwriting {
         font-family: "Dancing Script", cursive;
       }
-
-      /* Lấy luôn ảnh Phùng Khánh Linh làm nền mờ ảo cho xịn */
       .bg-hero {
         background-image: url("Minh_child_2.jpg");
       }
-
-      /* Ẩn thanh cuộn của phần Slider Tokyo */
       .hide-scrollbar::-webkit-scrollbar {
         display: none;
       }
@@ -92,6 +88,22 @@
         color: white;
         font-weight: 500;
       }
+
+      /* Custom scrollbar for Tokyo slider */
+      #tokyoSlider::-webkit-scrollbar {
+        height: 8px;
+      }
+      #tokyoSlider::-webkit-scrollbar-track {
+        background: #262626;
+        border-radius: 4px;
+      }
+      #tokyoSlider::-webkit-scrollbar-thumb {
+        background: #f43f5e;
+        border-radius: 4px;
+      }
+      #tokyoSlider::-webkit-scrollbar-thumb:hover {
+        background: #e11d48;
+      }
     </style>
   </head>
   <body
@@ -116,12 +128,13 @@
           Từ những tin nhắn ngày đầu hỏi về citigym, những tin nhắn thả thính
           trêu ghẹo của tui, rồi lần đầu nói chuyện với nhau ở hội chợ xuân hay
           những kí ức về những buổi đi chơi. Đối với tui, đó điều là những kí ức
-          đẹp từ khi Minh xuất hiện, và đóa hoa Tulip hồng An tặng chắc Minh
-          nhận được rồi he! ❤️ Minh thử tìm hiểu ý nghĩa của hoa Tulip hồng xem,
-          nó giống như những gì An muốn gửi gắm đến Minh vậy. Xin Lỗi vì đã
-          không thể trao tận tay Minh món quà này. Mong là Minh đã rất vui khi
-          nhận dược nó. Chúc Minh một ngày 8/3 vui vẻ, bình an và ngày càng xinh
-          đẹp nhoe :33
+          đẹp từ khi Minh xuất hiện, và đóa hoa Tulip hồng An tặng chắc Minh sẽ
+          thích lắm he! ❤️ Hoa Tulip hồng mang ý nghĩa một tình cảm nhẹ nhàng,
+          yêu thương, quan tâm và chân thành, nó giống như những gì An muốn gửi
+          gắm đến Minh vậy. Xin Lỗi vì những lần để Minh phải dỗi hay lo lắng,
+          An cũng rất tiếc vì đã không thể trao tận tay Minh đóa hoa ấy. Mong là
+          Minh sẽ gìn giữ nó. Chúc Minh một ngày 8/3 vui vẻ, bình an và ngày
+          càng xinh đẹp nhoe :33
         </p>
       </div>
     </header>
@@ -182,7 +195,7 @@
         </div>
         <div
           id="tokyoSlider"
-          class="flex overflow-x-auto gap-6 pb-4 hide-scrollbar snap-x snap-mandatory"
+          class="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory"
         >
           <!-- slider items will be injected via JavaScript -->
         </div>
@@ -197,14 +210,14 @@
 
       <section class="opacity-0 animate-slide-up" style="animation-delay: 0.4s">
         <h2 class="font-handwriting text-4xl mb-10 text-center text-rose-400">
-          ✨ Vibe & Passions của Em
+          ✨ Vibe & Passions của Minh
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div
             class="bg-neutral-800 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border border-neutral-700/50 hover:border-rose-400/50 flex flex-col shadow-xl"
           >
             <img
-              src="https://media.giphy.com/media/l41JRsph73VokN6ik/giphy.gif"
+              src="Minh_dance.jpg"
               alt="Dancing"
               class="w-full h-48 object-cover rounded-xl mb-4 shadow-md bg-neutral-700"
             />
@@ -212,8 +225,9 @@
               Dancing In The Dark
             </h3>
             <p class="text-neutral-400 text-sm leading-relaxed">
-              Chỉ cần một bản nhạc êm dịu, anh muốn ngắm em xoay vòng, mềm mại
-              và tự do. Nếu mỏi chân, hãy tựa vào vai anh nhé.
+              Nghe bảo điều này giúp Minh giải tỏa căng thẳng, cảm thấy vui vẻ
+              hơn,và được cháy hết mình đúng hong nek ? Và An nghe kể Minh đạt
+              được nhiều thành tích trong môn này nhiều lắm nek :33
             </p>
           </div>
 
@@ -221,14 +235,16 @@
             class="bg-neutral-800 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border border-neutral-700/50 hover:border-rose-400/50 flex flex-col shadow-xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=600&auto=format&fit=crop"
+              src="Chuyen_cua_may.jpg"
               alt="Cafe"
               class="w-full h-48 object-cover rounded-xl mb-4 shadow-md bg-neutral-700"
             />
             <h3 class="text-xl font-bold mb-2 text-rose-200">Cafe View Đẹp</h3>
             <p class="text-neutral-400 text-sm leading-relaxed">
-              Đam mê những góc quán chill chill, không gian mở để ngắm nhìn
-              thành phố.
+              Những góc quán chill chill, không gian mở để ngắm nhìn thành phố
+              hay một quán yên tĩnh và ngồi cạnh Minh để trò chuyện là điều yên
+              bình mà An cảm nhận được. Và tụi mình đã với nhau qua những quán
+              cafe nào Minh còn nhớ hong ?
             </p>
           </div>
 
@@ -236,14 +252,16 @@
             class="bg-neutral-800 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border border-neutral-700/50 hover:border-rose-400/50 flex flex-col shadow-xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?q=80&w=600&auto=format&fit=crop"
+              src="Dan.JPEG"
               alt="Nhạc cụ"
               class="w-full h-48 object-cover rounded-xl mb-4 shadow-md bg-neutral-700"
             />
             <h3 class="text-xl font-bold mb-2 text-rose-200">Nhạc cụ 🎹 🎸</h3>
             <p class="text-neutral-400 text-sm leading-relaxed">
-              Mỗi khi em lướt ngón tay trên phím đàn, trông cô bé của anh dịu
-              dàng đến lạ.
+              Mỗi khi nghĩ về khả năng chơi nhạc cụ của Minh là An lại thấy rất
+              ấn tượng và ngưỡng mộ. An biết Minh có thể chơi được nhiều loại
+              nhạc cụ khác nhau, từ organ đến guitar. Chắc hẳn Minh đã phải rất
+              kĩ luật và cố gắng để làm được điều đó.
             </p>
           </div>
 
@@ -251,13 +269,17 @@
             class="bg-neutral-800 p-6 rounded-2xl hover:-translate-y-2 transition-transform duration-300 border border-neutral-700/50 hover:border-rose-400/50 flex flex-col shadow-xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop"
+              src="Minh_sexy.jpg"
               alt="Phong cách"
               class="w-full h-48 object-cover rounded-xl mb-4 shadow-md bg-neutral-700"
             />
             <h3 class="text-xl font-bold mb-2 text-rose-200">Phong Cách</h3>
             <p class="text-neutral-400 text-sm leading-relaxed">
-              Sexy, quyến rũ nhưng vẫn vô cùng tinh tế và thanh lịch.
+              Sexy, quyến rũ là những ấn tượng đầu tiên khi An thấy outfit của
+              Minh. Nhưng rồi những buổi đi chơi với nhau, An lại thấy Minh có
+              thể xuất hiện với nhiều phong cách khác nhau trong đó còn có nhẹ
+              nhàng và sự nữ tính. Cho dù là phong cách nào thì An cũng đều thấy
+              rất đẹp và phù hợp với Minh hết :33
             </p>
           </div>
         </div>
@@ -272,7 +294,7 @@
             🍷 Taste & Cravings
           </h2>
           <p class="text-neutral-400 mb-4 italic">
-            "Anh đã ghi nhớ hết những món em thích rồi:"
+            "An đã ghi những món Minh thích ở đây rồi:"
           </p>
 
           <!-- Input và Button để thêm món ăn -->
@@ -329,7 +351,6 @@
                 </p>
               </div>
             </div>
-
             <audio id="myAudio" controls class="w-full relative z-10">
               Trình duyệt của bạn không hỗ trợ phát nhạc.
             </audio>
@@ -367,7 +388,7 @@
       <p>
         Made with
         <span class="text-rose-500 animate-pulse text-lg">❤️</span> just for my
-        Princess.
+        Baby.
       </p>
       <p class="mt-2 text-xs text-neutral-600">
         Hãy click thử vào màn hình xem có gì kìa!
@@ -380,7 +401,7 @@
       const playlist = [
         {
           id: 1,
-          title: "Em Đau",
+          title: "Em đau",
           artist: "Phùng Khánh Linh",
           coverSrc:
             "https://i.ytimg.com/vi/4mtpDkVUE8w/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD24wh36mDcfwaIKL9oWpXzKeB-MA",
@@ -388,11 +409,19 @@
         },
         {
           id: 2,
-          title: "Anh Đã Quen Với Cô Đơn",
+          title: "Anh đã Quen Với Cô Đơn",
           artist: "Soobin Hoàng Sơn",
           coverSrc:
             "https://i.scdn.co/image/ab67616d0000b2732922307c16bb852a0849bea0",
           audioSrc: "Anh Đã Quen Với Cô Đơn.mp3",
+        },
+        {
+          id: 3,
+          title: "Cảm ơn người đã thức cùng tôi",
+          artist: "Phùng Khánh Linh",
+          coverSrc:
+            "https://upload.wikimedia.org/wikipedia/vi/thumb/4/4b/Cam_on_nguoi_da_thuc_cung_toi.jpg/250px-Cam_on_nguoi_da_thuc_cung_toi.jpg",
+          audioSrc: "Cảm Ơn Người Đã Thức Cùng Tôi.mp3",
         },
       ];
 
@@ -558,6 +587,8 @@
         "Sushi & Sashimi tươi sống",
         "Rong biển trộn mè",
         "Uống Cafe / Matcha chill chill",
+        "Bún riêu",
+        "Bún bò",
       ];
 
       // Initialize foods from localStorage or use defaults
@@ -635,6 +666,16 @@
           title: "Asakusa khu phố cổ kính",
           desc: "Nơi giao thao độc đáo giữa truyền thống và hiện đại",
           imgUrl: "Asakusa.mp4",
+        },
+        {
+          title: "Khu phố Shibuya sầm uất",
+          desc: "Các ngã giao nhau của hàng trăm người mỗi ngày, biểu tượng của sự đông đúc tập nập",
+          imgUrl: "Shibuya.mp4",
+        },
+        {
+          title: "Akihabara - Thiên đường otaku",
+          desc: "Nơi tụ họp của những người yêu thích anime, manga và công nghệ",
+          imgUrl: "Akihabara.mp4",
         },
       ];
 
